@@ -110,7 +110,8 @@ describe("Test scripts service", () => {
                 expect(res).toBeDefined();
             })
             .catch((err) => {
-                expect(err.message).toEqual("Script execution timed out.");
+                //expect(err.message).toEqual("Script execution timed out.");
+                expect(err.message).toMatch(/timed out/);
             });
         });
 
