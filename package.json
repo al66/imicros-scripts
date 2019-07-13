@@ -1,6 +1,6 @@
 {
   "name": "imicros-scripts",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Andreas Leinen <andreas.leinen@imicros.de> (www.imicros.de)",
   "license": "MIT",
   "description": "Moleculer service for running customer code (untrusted code)",
@@ -26,7 +26,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/al66/imicros-templates.git"
+    "url": "git+https://github.com/al66/imicros-scripts.git"
   },
   "keywords": [
     "imicros",
