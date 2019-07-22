@@ -7,7 +7,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --coverage --no-cache",
-    "test-local": "jest --coverage --no-cache --config=local.js"
+    "test-json": "jest test/json4json.spec.js --coverage --no-cache"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -36,6 +36,7 @@
     "vm"
   ],
   "devDependencies": {
+    "json4json": "^1.1.0",
     "coveralls": "^3.0.4",
     "imicros-acl": "0.0.3",
     "jest": "^24.8.0",

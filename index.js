@@ -4,5 +4,6 @@
 "use strict";
 
 module.exports = {
-    Scripts: require("./lib/scripts")
+    Scripts: require("./lib/scripts"),
+    Json4json: require("./lib/json4json")
 };
