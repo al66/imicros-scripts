@@ -1,4 +1,5 @@
 async function main() {
+    /*** NOT SECURE!!! **/
     let stream = await global.getStream("content1.json");
     let promise = await new Promise((resolve,reject) => {
         let buffers = [];

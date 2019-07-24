@@ -101,13 +101,14 @@ describe("Test scripts service", () => {
                 expect(res.sum).toEqual(11);
             });
         });
-
+        
         it("it should get timeout running script2", async () => {
             opts.meta.scriptName = "script2.js";
             let params = {
             };
             return broker.call("v1.scripts.run", params, opts).then(res => {
                 expect(res).toBeDefined();
+                console.log("test 2", res);
             })
             .catch((err) => {
                 //expect(err.message).toEqual("Script execution timed out.");
@@ -115,6 +116,7 @@ describe("Test scripts service", () => {
             });
         });
 
+        /* NOT SECURE!! 
         it("it should run script3", async () => {
             opts.meta.scriptName = "script3.js";
             let params = {
@@ -135,6 +137,18 @@ describe("Test scripts service", () => {
                 expect(res).toBeDefined();
                 expect(res.test1).toEqual(11);
                 expect(res.test2).toEqual(6);
+            });
+        });
+        */
+
+        it("it should run script5", async () => {
+            opts.meta.scriptName = "script5.js";
+            let params = {
+                val: 5
+            };
+            return broker.call("v1.scripts.run", params, opts).then(res => {
+                expect(res).toBeDefined();
+                expect(res).toEqual(params.val + 1);
             });
         });
         

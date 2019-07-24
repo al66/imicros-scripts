@@ -1,11 +1,6 @@
-function evaluate (expression, context) {
-    const func = new Function("context", `with(context){ return ${expression} }`); // eslint-disable-line no-new-func
-    return func(context);
-}
-
 function main() {
-    let exp = "evaluate(process.exit(),context)";
-    const func = new Function("context", `with(context){ return ${exp} }`);
-    return func(global.val);
+    let exp = "context + 1";
+    const func = new Function("context", `with(context){ console.log(context);return ${exp} }`);
+    return func(global.params.val);
 }
 main();
