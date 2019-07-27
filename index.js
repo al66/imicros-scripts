@@ -4,5 +4,7 @@
 "use strict";
 
 module.exports = {
-    Scripts: require("./lib/scripts")
+    Scripts: require("./lib/scripts"),
+    Sandbox: require("./lib/sandbox"),
+    Deploy: require("./lib/deploy")
 };

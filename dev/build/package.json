@@ -1,0 +1,16 @@
+{
+  "name": "untrusted-code",
+  "version": "1.0.0",
+  "description": "Docker build",
+  "scripts": {
+    "start": "moleculer-runner services"
+  },
+  "author": "Andreas.Leinen@imicros.de",
+  "dependencies": {
+    "moleculer": "0.13.9",
+    "moleculer-web": "git+https://github.com/moleculerjs/moleculer-web.git"
+  },
+  "engines": {
+    "node": ">= 8.x.x"
+  }
+}
