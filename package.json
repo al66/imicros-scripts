@@ -6,9 +6,10 @@
   "description": "Moleculer service for running customer code (untrusted code)",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage --no-cache",
+    "test": "node test/helper/build-travis && jest --coverage --no-cache",
+    "test-local": "node test/helper/build-local && jest --coverage --no-cache --config=local.js",
     "test-scripts": "jest test/scripts.spec.js --coverage --no-cache",
-    "test-sandbox": "jest test/sandbox.spec.js --coverage --no-cache",
+    "test-sandbox": "node test/helper/build-local && jest test/sandbox.spec.js --coverage --no-cache --config=local.js",
     "test-deploy": "jest test/deploy.spec.js --coverage --no-cache"
   },
   "jest": {

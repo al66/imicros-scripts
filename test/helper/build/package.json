@@ -1,0 +1,16 @@
+{
+  "name": "imciros-sandbox",
+  "version": "1.0.0",
+  "description": "Docker build",
+  "scripts": {
+    "start": "moleculer-runner services"
+  },
+  "author": "Andreas.Leinen@imicros.de",
+  "dependencies": {
+    "moleculer": "0.13.9",
+    "moleculer-web": "^0.8.5"
+  },
+  "engines": {
+    "node": ">= 8.x.x"
+  }
+}

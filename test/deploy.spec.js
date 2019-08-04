@@ -43,14 +43,14 @@ const MinioMixinMock = () => { return {
 };};
 
 
-
-describe("Test scripts service", () => {
+describe("Test deploy service", () => {
 
     let broker, service;
     beforeAll(() => {
     });
     
     afterAll(() => {
+        return fs.rmdirSync("assets/"+groupId, (err) => console.log(err));
     });
     
     describe("Test create service", () => {
@@ -95,7 +95,7 @@ describe("Test scripts service", () => {
         it("it should deploy a file", async () => {
             let params = {
                 "objectName": "service1.js",
-                "name": "greeter.service.js"
+                "filename": "greeter.service.js"
             };
             return broker.call("v1.deploy.add", params, opts).then(res => {
                 expect(res).toBeDefined();
@@ -104,6 +104,16 @@ describe("Test scripts service", () => {
             });
         });
         
+        it("it should remove the file again", async () => {
+            let params = {
+                "filename": "greeter.service.js"
+            };
+            return broker.call("v1.deploy.remove", params, opts).then(res => {
+                expect(res).toBeDefined();
+                expect(res).toEqual({ removed: "greeter.service.js" });
+                expect(!fs.existsSync("assets/"+groupId+"/greeter.service.js"));
+            });
+        });
         
     });
     
