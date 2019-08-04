@@ -41,7 +41,7 @@ async function build ({ host }) {
 
             let stream = await docker.buildImage({
                 context: dir,
-                src: ["Dockerfile","services\\gateway.service.js","services\\greeter.service.js"]
+                src: ["Dockerfile","services/gateway.service.js","services/greeter.service.js"]
             }, {t: "helper"});
 
             stream.pipe(process.stdout, {
