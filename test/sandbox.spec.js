@@ -20,9 +20,13 @@ describe("Test sandbox service", () => {
     let broker, service;
     beforeAll(() => {
         return new Promise(async (resolve, reject) => {
-            await init();
-            console.log("Init done");
-            resolve();
+            try {
+                await init();
+                console.log("Init done");
+                resolve();
+            } catch (err) {
+                reject(err);
+            }
         });
     });
     
@@ -34,7 +38,7 @@ describe("Test sandbox service", () => {
         it("it should start the broker", async () => {
             broker = new ServiceBroker({
                 logger: console,
-                logLevel: "debug" //"info" //"debug"
+                logLevel: "info" //"debug"
             });
             service = await broker.createService(Sandbox, Object.assign({ 
                 name: "v1.sandbox",
@@ -163,7 +167,7 @@ describe("Test sandbox service", () => {
                 expect(res[0].status).toEqual("running");
             });
         });
-
+/*
         it("it should remove the sandbox", async () => {
             let params = {
             };
@@ -172,6 +176,7 @@ describe("Test sandbox service", () => {
                 expect(res).toEqual(true);
             });
         });
+*/
         
     });
     

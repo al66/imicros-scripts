@@ -23,9 +23,9 @@ function runExec(container) {
 
                 container.modem.demuxStream(stream, process.stdout, process.stderr);
 
-                exec.inspect((err, data) => {
+                exec.inspect((err /*, data*/) => {
                     if (err) return reject(err);
-                    console.log(data);
+                    //console.log(data);
                 });
 
                 stream.on("end", () => {resolve(); cleanup(container);});
@@ -41,7 +41,7 @@ async function build ({host,image}) {
 
             let stream = await docker.buildImage({
                 context: dir,
-                src: ["Dockerfile","package.json","moleculer.config.js","runner.js"]
+                src: ["Dockerfile","package.json","runner.js"]
             }, {t: image});
 
             stream.pipe(process.stdout, {

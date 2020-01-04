@@ -54,7 +54,7 @@ const broker = new ServiceBroker({
 
     hotReload: true
 });
-console.log("Load services from:", __dirname + "/services");
+broker.logger.info("Load services from folder", { folder: __dirname + "/services" });
 broker.loadServices(__dirname + "/services");
 broker.start();
 

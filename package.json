@@ -10,17 +10,21 @@
     "test-local": "node test/helper/build-local && jest --coverage --no-cache --config=local.js",
     "test-scripts": "jest test/scripts.spec.js --coverage --no-cache",
     "test-sandbox": "node test/helper/build-local && jest test/sandbox.spec.js --coverage --no-cache --config=local.js",
+    "test-proxy": "jest test/sandbox.proxy.spec.js --coverage --no-cache --config=local.js",
     "test-deploy": "jest test/deploy.spec.js --coverage --no-cache"
   },
   "jest": {
     "collectCoverageFrom": [
       "lib/*.js",
       "lib/util/*.js",
-      "!lib/globals.js"
+      "!lib/globals.js",
+      "!test/helper/*.*"
     ],
     "coveragePathIgnorePatterns": [
       "/node_modules/",
-      "/dev/"
+      "/dev/",
+      "/test/helper/",
+      "/lib/script-child.js"
     ],
     "testPathIgnorePatterns": [
       "/node_modules/",
@@ -39,17 +43,19 @@
     "vm"
   ],
   "devDependencies": {
-    "coveralls": "^3.0.4",
+    "coveralls": "^3.0.9",
     "imicros-acl": "0.0.3",
-    "jest": "^24.8.0",
-    "moleculer": "^0.13.9",
+    "jest": "^24.9.0",
+    "moleculer": "^0.13.12",
     "moleculer-web": "git+https://github.com/moleculerjs/moleculer-web.git",
-    "nats": "^1.3.0",
-    "uuid": "^3.3.2"
+    "nats": "^1.3.2",
+    "uuid": "^3.3.3"
   },
   "dependencies": {
     "dockerode": "^2.5.8",
-    "lodash": "^4.17.13",
-    "vm2": "^3.8.2"
+    "lodash": "^4.17.15",
+    "request": "^2.88.0",
+    "supertest": "^4.0.2",
+    "vm2": "^3.8.4"
   }
 }

@@ -6,5 +6,6 @@
 module.exports = {
     Scripts: require("./lib/scripts"),
     Sandbox: require("./lib/sandbox"),
+    Proxy: require("./lib/sandbox.proxy"),
     Deploy: require("./lib/deploy")
 };

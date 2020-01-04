@@ -23,9 +23,9 @@ function runExec(container) {
 
                 container.modem.demuxStream(stream, process.stdout, process.stderr);
 
-                exec.inspect((err, data) => {
+                exec.inspect((err /*, data*/) => {
                     if (err) return reject(err);
-                    console.log(data);
+                    //console.log(data);
                 });
 
                 stream.on("end", () => {resolve(); cleanup(container);});
